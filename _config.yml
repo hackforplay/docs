@@ -2,3 +2,4 @@ theme: jekyll-theme-cayman
 title: HackforPlayDocs
 lang: ja
 google_analytics: UA-113487422-4
+code_url: https://github.com/hackforplay/common
