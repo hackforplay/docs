@@ -2,9 +2,10 @@
 title: ドキュメント トップ
 ---
 
-- [グローバル関数](/global)
-- [RPGObject（基底クラス）](/rpgobject)
-- [トリガー](/trigger)
-- [なかま](/enum#なかま)
-- [むき](/enum#むき)
-- [ハック](/hack)
+# {{ site.data.navigation.docs_list_title }}
+
+{% for index in site.data.navigation.docs %}
+
+- [{{ index.title }}](/{{ index.url }})
+
+{% endfor %}
