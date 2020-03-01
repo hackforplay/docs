@@ -1,0 +1,12 @@
+docs_list_title: 目次
+docs:
+  - title: グローバル関数
+    url: global
+  - title: RPGObject（基底クラス）
+    url: rpgobject
+  - title: トリガー
+    url: trigger
+  - title: enum
+    url: enum
+  - title: ハック
+    url: hack

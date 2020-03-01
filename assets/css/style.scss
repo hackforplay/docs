@@ -16,3 +16,26 @@
   margin-top: 40px;
   margin-bottom: 200px;
 }
+
+body {
+  position: relative;
+}
+
+#side-bar {
+  position: absolute;
+  height: 100%;
+}
+
+#side-bar > * {
+  position: sticky;
+  top: 0px;
+  padding: 1em;
+  z-index: 1;
+}
+
+@media only screen and (max-width: $large-breakpoint) {
+  #side-bar {
+    position: relative;
+    padding: 0rem 3rem;
+  }
+}
