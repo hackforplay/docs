@@ -1,5 +1,5 @@
 ---
-title: ドキュメント トップ
+title: 目次
 ---
 
 # {{ site.data.navigation.docs_list_title }}
