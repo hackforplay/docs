@@ -1,5 +1,5 @@
 ---
-title: 目次
+title: コード早見表
 ---
 
 # {{ site.data.navigation.docs_list_title }}
