@@ -21,9 +21,11 @@
     <meta property="og:image" content="https://repository-images.githubusercontent.com/147068640/88348880-5963-11ea-948d-67227ad4b465">
     <meta name="twitter:image:src" content="https://repository-images.githubusercontent.com/147068640/88348880-5963-11ea-948d-67227ad4b465">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="icon" type="image/png" href="/favicon.png" />
   </head>
   <body>
     <header class="page-header" role="banner">
+      <img src="/favicon.png" alt="icon">
       <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
