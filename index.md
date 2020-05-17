@@ -1,11 +1,28 @@
 ---
-title: コード早見表
+title: '@hackforplay/common'
 ---
 
-# {{ site.data.navigation.docs_list_title }}
+{% assign files = 'global,rpgobject,enum,hack' | split: ','  %}
+{% for file in files %}
+{% for entry in site.data.reference.ja[file] %}
+{% assign value = entry[1] %}
 
-{% for index in site.data.navigation.docs %}
+{% if value.type == 'class' %}
 
-- [{{ index.title }}](/{{ index.url }})
+{% for fields in value.fields %}
+{% assign field = fields[1] %}
 
+- **[{{ field.name }}](/{{ file }}#{{ field.name }})** {{ field.desc | split: " " | first }}
+
+{% endfor %}
+
+{% else %}
+
+{% assign field = entry[1] %}
+
+- **[{{ field.name }}](/{{ file }}#{{ field.name }})** {{ field.desc | split: " " | first }}
+
+{% endif %}
+
+{% endfor %}
 {% endfor %}
