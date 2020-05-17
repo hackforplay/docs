@@ -1,5 +1,5 @@
 ---
-title: '@hackforplay/common'
+title: チートシート
 ---
 
 {% assign files = 'global,rpgobject,enum,hack' | split: ','  %}
