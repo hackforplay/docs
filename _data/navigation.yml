@@ -2,7 +2,7 @@ docs_list_title: 目次
 docs:
   - title: グローバル関数
     url: global
-  - title: RPGObject（基底クラス）
+  - title: RPGObject
     url: rpgobject
   - title: トリガー
     url: trigger
