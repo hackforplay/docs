@@ -1,7 +1,6 @@
 theme: jekyll-theme-cayman
 title: ハックフォープレイ チートシート
 url: https://docs.hackforplay.xyz
-image: /assets/image/hackforplay-cheat-sheet.png
 lang: ja
 google_analytics: UA-113487422-4
 code_url: https://github.com/hackforplay/common
@@ -10,3 +9,8 @@ twitter:
   card: summary
 facebook:
   app_id: 2762772990425604
+defaults:
+  - scope:
+      path: ''
+    values:
+      image: /assets/image/hackforplay-cheat-sheet.png
