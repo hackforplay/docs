@@ -46,3 +46,25 @@ Hack:
         ハック.じかんをとめる();
         await this.まつ(2);
         ハック.じかんをうごかす();
+
+    showLabel:
+      name: がめんにだす
+      type: function
+      desc: |
+        プレイヤーのパラメータを左上にだす
+      code: |
+        ハック.がめんにだす('こうげきりょく');
+      args:
+        - name: パラメータ名
+          type: string
+          desc: |
+            出したいパラメータの名前
+            `this.〇〇` の 〇〇 に入るものであれば、何でも使える
+
+    hideLabel:
+      name: がめんからけす
+      type: function
+      desc: |
+        [がめんにだす](hack#がめんにだす)で表示したパラメータを画面から消す
+      code: |
+        ハック.がめんからけす();
