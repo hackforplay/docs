@@ -438,3 +438,46 @@ RPGObject:
           type: string
           desc: |
             このキャラクターをどの[むき enum/Direction]にするか
+
+    is:
+      name: は
+      type: function
+      desc: |
+        そのキャラクターが指定した[なまえ](rpgobject#なまえ)のものかどうかをしらべる
+      code: |
+        if (item.は('プレイヤー')) {
+          // あいてのキャラクターがプレイヤーであれば、ここに入る
+        }
+      args:
+        - name: なまえ
+          type: string
+          desc: |
+            キャラクターの[なまえ](rpgobject#なまえ)
+
+    isEnemy:
+      name: てきかどうか
+      desc: |
+        指定したキャラクターが自分にとって敵(てき)かどうかをしらべる
+        同じ[なかま](rpgobject#なかま)でないか、どくりつ同士であれば、敵になる
+      code: |
+        if (this.てきかどうか(item)) {
+          // 相手のてきあれば、ここに入る
+        }
+      args:
+        - name: あいて
+          type: RPGObject
+          desc: |
+            てきかどうかをしらべたいキャラクター
+
+    think:
+      name: うかべる
+      desc: |
+        あたまの上に何かをうかべる。しばらくすると消える
+        うかべられるものは、 '!' と '?'
+      code: |
+        await this.うかべる('!');
+      args:
+        - name: きごう
+          type: string
+          desc: |
+            うかべたい記号。決まったものしか使えない

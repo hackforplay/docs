@@ -68,3 +68,19 @@ Hack:
         [がめんにだす](hack#がめんにだす)で表示したパラメータを画面から消す
       code: |
         ハック.がめんからけす();
+
+    code:
+      name: まどうしょ
+      type: string
+      desc: |
+        まどうしょのなかみをへんこうする
+      code: |
+        ハック.まどうしょ = `player.たいりょく = 100`;
+
+    emphasizeCode:
+      name: まどうしょをひからせる
+      type: function
+      desc: |
+        まどうしょが目立つように光らせる
+      code: |
+        ハック.まどうしょをひからせる();

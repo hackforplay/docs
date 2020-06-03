@@ -106,6 +106,16 @@ rule:
           type: function
           desc: キャラクターが別のキャラクターに踏まれた時に呼ばれる関数
 
+    removeTrodden:
+      name: どかれたとき
+      type: function
+      desc: |
+        キャラクターが別のキャラクターに踏まれたあと、どかれたときに呼ばれる関数を登録できる
+      args:
+        - name: どかれたとき
+          type: function
+          desc: キャラクターが別のキャラクターに踏まれたあとどかれたときに呼ばれる関数
+
     collided:
       name: ぶつかったとき
       type: function
