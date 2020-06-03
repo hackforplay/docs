@@ -9,14 +9,14 @@ Hack:
       type: function
       desc: ゲームクリアにする
       code: |
-        Hack.gameclear();
+        ハック.ゲームクリア();
 
     gameover:
       name: ゲームオーバー
       type: function
       desc: ゲームオーバーにする
       code: |
-        Hack.gameover();
+        ハック.ゲームオーバー();
 
     time:
       name: じかん
@@ -25,7 +25,7 @@ Hack:
         ゲームがはじまってからの時間を設定できる
         あるいは、時間によってキャラクターのふるまいを変えられる
       code: |
-        Hack.time = 0; // じかんをゼロに戻す
+        ハック.じかん = 0;
 
     stopTimer:
       name: じかんをとめる
@@ -35,7 +35,7 @@ Hack:
         ただし、キャラクターは動き続ける
         [じかんをうごかす](#じかんをうごかす)をすると、また動き始める
       code: |
-        Hack.stopTimer(); // じかんをとめる
+        ハック.じかんをとめる();
 
     startTimer:
       name: じかんをうごかす
@@ -43,6 +43,6 @@ Hack:
       desc: |
         [じかんをとめる](#じかんをとめる)で止めたじかんを、また動かし始める
       code: |
-        Hack.stopTimer(); // じかんをとめる
-        await this.まつ(2); // ２秒まつ
-        Hack.startTimer(); // じかんをうごかしはじめる
+        ハック.じかんをとめる();
+        await this.まつ(2);
+        ハック.じかんをうごかす();
