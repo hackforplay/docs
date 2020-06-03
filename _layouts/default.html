@@ -37,7 +37,9 @@
 
     <nav id="side-bar">
       <div>
-        <h6>{{ site.data.navigation.docs_list_title }}</h6>
+        <a href="/">
+          <h6>{{ site.data.navigation.docs_list_title }}</h6>
+        </a>
         {% for index in site.data.navigation.docs %}
           {% if index.url == page.file_name %}
             <h5>{{ index.title }}</h5>
