@@ -312,6 +312,13 @@ RPGObject:
         まわりをみわたして、別のキャラクターのことをみつけようとする
         何かをみつけたら、[みつけたとき](trigger#みつけたとき)が呼ばれる
 
+    findEnemy:
+      name: てきをみつける
+      type: function
+      desc: |
+        [てきかどうか](rpgobject#てきかどうか)をチェックして、
+        てきだけを[みつける](rpgobject#みつける)
+
     flyToward:
       name: とんでいく
       type: function
