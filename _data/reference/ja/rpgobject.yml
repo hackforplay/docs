@@ -205,6 +205,27 @@ RPGObject:
       desc: |
         このキャラクターを[しょうかんする](rpgobject#しょうかんする)によって作ったキャラクター
 
+    scaleX:
+      name: みためのはば
+      type: number
+      init: 1
+      desc: |
+        キャラクターの横の長さを何倍に見せるか。見た目だけが変わる（当たり判定は変わらない）
+
+    scaleY:
+      name: みためのたかさ
+      type: number
+      init: 1
+      desc: |
+        キャラクターのたての長さを何倍に見せるか。見た目だけが変わる（当たり判定は変わらない）
+
+    attackedDamageTime:
+      name: むてきじかん
+      type: number
+      init: 1
+      desc: |
+        キャラクターが攻撃されたときにチカチカする（むてきになる）時間。単位は秒
+
     attack:
       name: こうげきする
       type: function
