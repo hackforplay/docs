@@ -96,6 +96,26 @@ rule:
           type: function
           desc: キャラクターがタップ（クリック）された時に呼ばれる関数
 
+    mapChanged:
+      name: マップがかわったとき
+      type: function
+      desc: |
+        キャラクターのいるマップがかわった時に呼ばれる関数を登録できる
+      args:
+        - name: タップされたとき
+          type: function
+          desc: キャラクターのいるマップがかわった時に呼ばれる関数
+
+    walked:
+      name: あるいたとき
+      type: function
+      desc: |
+        キャラクターが[あるく](rpgobject#あるく)時に呼ばれる関数を登録できる
+      args:
+        - name: タップされたとき
+          type: function
+          desc: キャラクターが[あるく](rpgobject#あるく)時に呼ばれる関数
+
     trodden:
       name: ふまれたとき
       type: function
