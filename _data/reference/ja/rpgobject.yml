@@ -226,6 +226,16 @@ RPGObject:
       desc: |
         キャラクターが攻撃されたときにチカチカする（むてきになる）時間。単位は秒
 
+    frozen:
+      name: うごけない
+      type: boolean
+      init: false
+      desc: |
+        キャラクターをうごけなくするフラグ。これを true にすると、
+        [あるく](rpgobject#あるく)ことや[こうげきする](rpgobject#こうげきする)ことができなくなる
+      code: |
+        this.うごけない = true;
+
     attack:
       name: こうげきする
       type: function
