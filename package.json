@@ -1,0 +1,13 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "Documentation project",
+  "private": true,
+  "workspaces": [
+    "scripts/*"
+  ],
+  "scripts": {
+    "yaml-to-md": "npm run start -w yaml-to-md",
+    "build-docs": "npm run yaml-to-md"
+  }
+}

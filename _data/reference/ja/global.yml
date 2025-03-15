@@ -24,13 +24,13 @@ create:
       desc: キャラクターがどの[むき](rpgobject#むき)で出てくるか
 
 log:
-  name: みる
+  name: log
   type: function
   desc: |
     へんすうの中身を見るための便利な関数
     ゲーム画面の下のところに変数の中身が出てくる
   code: |
-    みる(this.たいりょく); // キャラクターの今のたいりょくを見る
+    log(this.たいりょく); // キャラクターの今のたいりょくを見る
   args:
     - name: へんすう
       type: any

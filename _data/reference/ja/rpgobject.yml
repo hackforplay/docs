@@ -28,6 +28,8 @@ RPGObject:
       desc: |
         キャラクターがいるマップのなまえ
         マップをかえるには[いく](rpgobject#いく)を使う
+      code: |
+        this.マップ = 'map2';
 
     mapX:
       name: ひだりから
@@ -36,6 +38,7 @@ RPGObject:
       desc: |
         キャラクターがひだりから何マス目にいるか
         ばしょをかえるには[いく](rpgobject#いく)を使う
+        このへんすうには代入できない
 
     mapY:
       name: うえから
@@ -44,6 +47,7 @@ RPGObject:
       desc: |
         キャラクターがうえから何マス目にいるか
         ばしょをかえるには[いく](rpgobject#いく)を使う
+        このへんすうには代入できない
 
     money:
       name: おかね
@@ -72,6 +76,8 @@ RPGObject:
         このキャラクターが他のキャラクターとぶつかるかどうか
         true にするとぶつかる
         何も設定しなかった場合、[ふまれたとき](trigger#ふまれたとき)がなければ true になる
+      code: |
+        this.ぶつかるか = true;
 
     penetrate:
       name: かんつうするかいすう
@@ -80,6 +86,8 @@ RPGObject:
       desc: |
         このキャラクターが他のキャラクターに[ダメージ](rpgobject#ダメージ)を与えたとき、消えずにのこる（貫通する）回数
         かんつうするかいすうが 0 だと、ぶつかったときに消えてしまう
+      code: |
+        this.かんつうするかいすう = 3;
 
     hp:
       name: たいりょく
@@ -102,6 +110,10 @@ RPGObject:
         'walk' なら、今は[あるく](rpgobject#あるく)している
         'attack' なら、今は[こうげきする](rpgobject#こうげきする)している
         'dead' なら、[たいりょく](rpgobject#たいりょく)が 0 になってしまった
+      code: |
+        if (this.なにをしているか === 'idle') {
+          await this.あるく();
+        }
 
     forward:
       name: ベクトル
@@ -109,6 +121,9 @@ RPGObject:
       desc: |
         このキャラクターが向いている方向の[ベクトル](vector#vector2)
         つねに大きさが１の単位ベクトルである
+      code: |
+        const x = this.ベクトル.x;
+        const y = this.ベクトル.y;
 
     direction:
       name: むき
@@ -136,6 +151,8 @@ RPGObject:
       desc: |
         このキャラクターがぶつかったときに、相手に与えるダメージ
         何も設定しなければ、ダメージをあたえない
+      code: |
+        this.ダメージ = 2;
 
     speed:
       name: あるくはやさ
@@ -143,6 +160,8 @@ RPGObject:
       init: 1
       desc: |
         このキャラクターが[あるく](rpgobject#あるく)ときのはやさ
+      code: |
+        this.あるくはやさ = 2; // 2倍の速さで歩く
 
     collideMapBoader:
       name: マップのはしにぶつかるか
@@ -151,6 +170,8 @@ RPGObject:
       desc: |
         このキャラクターがマップの端にぶつかるかどうか
         true ならぶつかる
+      code: |
+        this.マップのはしにぶつかるか = false; // マップの端を通り抜けられる
 
     showHpLabel:
       name: たいりょくがみえるか
@@ -159,6 +180,8 @@ RPGObject:
       desc: |
         このキャラクターの[たいりょく](rpgobject#たいりょく)がみえるかどうか
         true なら見える
+      code: |
+        this.たいりょくがみえるか = false; // 体力ゲージを非表示にする
 
     name:
       name: なまえ
@@ -166,6 +189,10 @@ RPGObject:
       desc: |
         このキャラクターのアセット名
         たとえばプレイヤーの[なまえ](rpgobject#なまえ)は 'プレイヤー' になっている
+      code: |
+        if (this.なまえ === 'プレイヤー') {
+          await this.はなす('こんにちは！');
+        }
 
     skill:
       name: スキル
@@ -182,6 +209,8 @@ RPGObject:
       init: 1
       desc: |
         このキャラクターが[みつける](rpgobject#みつける)ときに、何マスとなりまで見つけられるか
+      code: |
+        this.みえるはんい = 2; // 周囲2マスまで見える
 
     lengthOfView:
       name: みえるきょり
@@ -189,6 +218,8 @@ RPGObject:
       init: 10
       desc: |
         このキャラクターが[みつける](rpgobject#みつける)ときに、何マス前まで見つけられるか
+      code: |
+        this.みえるきょり = 5; // 5マス先まで見える
 
     isInvincible:
       name: むてきか
@@ -197,6 +228,8 @@ RPGObject:
       desc: |
         このキャラクターが無敵かどうか
         true にすると、[ダメージ](rpgobject#ダメージ)を受けなくなる
+      code: |
+        this.むてきか = true; // 無敵モードにする
 
     parent:
       name: おや
@@ -204,6 +237,11 @@ RPGObject:
       init: undefined
       desc: |
         このキャラクターを[しょうかんする](rpgobject#しょうかんする)によって作ったキャラクター
+      code: |
+        if (this.おや) {
+          // 親キャラクターがいる場合の処理
+          await this.おや.はなす('これは私が作ったキャラクターです');
+        }
 
     scaleX:
       name: みためのはば
@@ -211,6 +249,8 @@ RPGObject:
       init: 1
       desc: |
         キャラクターの横の長さを何倍に見せるか。見た目だけが変わる（当たり判定は変わらない）
+      code: |
+        this.みためのはば = 2; // 横幅を2倍に見せる
 
     scaleY:
       name: みためのたかさ
@@ -218,6 +258,8 @@ RPGObject:
       init: 1
       desc: |
         キャラクターのたての長さを何倍に見せるか。見た目だけが変わる（当たり判定は変わらない）
+      code: |
+        this.みためのたかさ = 0.5; // 高さを半分に見せる
 
     attackedDamageTime:
       name: むてきじかん
@@ -225,6 +267,8 @@ RPGObject:
       init: 1
       desc: |
         キャラクターが攻撃されたときにチカチカする（むてきになる）時間。単位は秒
+      code: |
+        this.むてきじかん = 2; // 攻撃されたら2秒間無敵になる
 
     frozen:
       name: うごけない
@@ -335,6 +379,8 @@ RPGObject:
         - name: なまえ
           type: string
           desc: 変身後のキャラクターの名前
+      code: |
+        await this.へんしんする('ナイト女');
 
     find:
       name: みつける
@@ -342,6 +388,8 @@ RPGObject:
       desc: |
         まわりをみわたして、別のキャラクターのことをみつけようとする
         何かをみつけたら、[みつけたとき](trigger#みつけたとき)が呼ばれる
+      code: |
+        await this.みつける();
 
     findEnemy:
       name: てきをみつける
@@ -349,6 +397,8 @@ RPGObject:
       desc: |
         [てきかどうか](rpgobject#てきかどうか)をチェックして、
         てきだけを[みつける](rpgobject#みつける)
+      code: |
+        await this.てきをみつける();
 
     flyToward:
       name: とんでいく
@@ -362,6 +412,8 @@ RPGObject:
           desc: |
             もくひょうにするキャラクターの名前
             このキャラクターから一番近いキャラクターがひとつえらばれて、そこへ向かってとんでいく
+      code: |
+        await this.とんでいく('プレイヤー');
 
     se:
       name: おとをならす
@@ -371,7 +423,11 @@ RPGObject:
       args:
         - name: 名前
           type: string
-          desc: 鳴らしたい音の名前 # TODO: 音の名前の表を作る
+          desc: |
+            鳴らしたい音の名前
+            使える音: あわ01,きぬずれ01,きぬずれ02,かいふく01,かいふく02,ダメージ01,ダメージ02,ダメージ03,ダメージ04,ぶきみ01,ぶきみ02,やられた01,やられた02,はずれ01,ばくはつ01,ばくはつ02,ばくはつ03,ばくはつ04,ばくはつ05,おちる01,ほのお01,ほのお02,ほのお03,ゲームオーバー01,ゲームオーバー02,まほう01,まほう02,まほう03,まほう04,おかね01,おかね02,おかね03,パワーダウン01,パワーダウン02,パワーダウン03,パワーダウン04,パワーアップ01,パワーアップ02,パワーアップ03,パワーアップ04,パワーアップ05,にげる01,なぞとき01,ビーム01,ビーム02,ビーム03,ビーム04,ビーム05,かたな01,じゅもん01,せいかい01,せいかい02,せいかい03,せいかい04,あせ01,けんをふる01,けんをふる02,けんをふる03,けんをふる04,テレポート01,テレポート02,たおれる01,むち01,まじょ01
+      code: |
+        await this.おとをならす(('▼ おと', 'あわ01'));
 
     talk:
       name: はなす
@@ -411,7 +467,9 @@ RPGObject:
       args:
         - name: なまえ
           type: string
-          desc: どの見た目にするか # TODO: 音の名前の表を作る
+          desc: どの見た目にするか
+      code: |
+        await this.みためをかえる('紫色のゴースト');
 
     message:
       name: メッセージする
@@ -423,12 +481,16 @@ RPGObject:
         - name: なまえ
           type: string
           desc: メッセージを送りたいキャラクターの名前
+      code: |
+        await this.メッセージする('赤色のとつブロック');
 
     destroy:
       name: きえる
       type: function
       desc: |
         このキャラクターをただちに消去する
+      code: |
+        await this.きえる();
 
     chase:
       name: おいかける
@@ -446,6 +508,8 @@ RPGObject:
           init: false
           desc: |
             ふつうは４方向にしか進まないが、ここに true を入れると８方向に進む
+      code: |
+        await this.おいかける('プレイヤー', true);
 
     faceTo:
       name: ふりむく
@@ -457,12 +521,16 @@ RPGObject:
           type: RPGObject
           desc: |
             相手キャラクターの変数
+      code: |
+        await this.ふりむく(プレイヤー);
 
     teleportRandom:
       name: テレポートランダム
       type: function
       desc: |
         ランダムな位置にテレポートする
+      code: |
+        await this.テレポートランダム();
 
     turn:
       name: むきをかえる
@@ -494,6 +562,7 @@ RPGObject:
 
     isEnemy:
       name: てきかどうか
+      type: function
       desc: |
         指定したキャラクターが自分にとって敵(てき)かどうかをしらべる
         同じ[なかま](rpgobject#なかま)でないか、どくりつ同士であれば、敵になる
@@ -509,6 +578,7 @@ RPGObject:
 
     think:
       name: うかべる
+      type: function
       desc: |
         あたまの上に何かをうかべる。しばらくすると消える
         うかべられるものは、 '!' と '?'
@@ -519,3 +589,4 @@ RPGObject:
           type: string
           desc: |
             うかべたい記号。決まったものしか使えない
+
