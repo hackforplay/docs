@@ -494,6 +494,7 @@ RPGObject:
 
     isEnemy:
       name: てきかどうか
+      type: function
       desc: |
         指定したキャラクターが自分にとって敵(てき)かどうかをしらべる
         同じ[なかま](rpgobject#なかま)でないか、どくりつ同士であれば、敵になる
@@ -509,6 +510,7 @@ RPGObject:
 
     think:
       name: うかべる
+      type: function
       desc: |
         あたまの上に何かをうかべる。しばらくすると消える
         うかべられるものは、 '!' と '?'
